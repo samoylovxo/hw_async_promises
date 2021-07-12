@@ -11,14 +11,30 @@ test('Created key Saving', async () => {
   });
 
   expect(gameSavingLoader).toEqual({
-    saving: '{"id":9,"created":1546300800,"userInfo":{"id":1,name":"Hitman","level":10,"points":2000}}',
+    saving: {
+      created: 1546300800,
+      id: 9,
+      userInfo: {
+        id: 1,
+        level: 10,
+        name: 'Hitman',
+        points: 2000,
+      },
+    },
   });
 });
 
 test('Is Promise returned?', async () => {
   const gameSavingLoader = new GameSavingLoader();
 
-  expect(await gameSavingLoader.load()).toEqual(
-    '{"id":9,"created":1546300800,"userInfo":{"id":1,name":"Hitman","level":10,"points":2000}}'
-  );
+  expect(await gameSavingLoader.load()).toEqual({
+    created: 1546300800,
+    id: 9,
+    userInfo: {
+      id: 1,
+      level: 10,
+      name: 'Hitman',
+      points: 2000,
+    },
+  });
 });

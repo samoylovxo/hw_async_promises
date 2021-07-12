@@ -15,7 +15,7 @@ export default class GameSavingLoader {
         return json(resolve);
       })
       .then((resolve) => {
-        return resolve;
+        return JSON.parse(resolve);
       });
   }
 }
